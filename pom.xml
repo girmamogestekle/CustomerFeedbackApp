@@ -82,7 +82,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.example.MainApplication</mainClass>
+                            <mainClass>com.feedback.customer.CustomerFeedbackApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
