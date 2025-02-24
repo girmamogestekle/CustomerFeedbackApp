@@ -47,7 +47,9 @@ jobs:
         run: |
             docker pull girmamogestekle/customer-feedback-application:latest
             docker tag girmamogestekle/customer-feedback-application:latest registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web
+            docker images
             docker push registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web
 
       - name: Release Docker image on Heroku
         run: heroku container:release web -a ${{ secrets.HEROKU_APP_NAME }}
+             heroku releases -a ${{ secrets.HEROKU_APP_NAME }}  # Debug releases
