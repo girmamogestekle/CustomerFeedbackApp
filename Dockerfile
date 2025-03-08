@@ -1,5 +1,5 @@
 # Use Amazon Corretto as the base image
-FROM public.ecr.aws/lambda/java:17
+FROM amazoncorretto:17-alpine
 
 # Set the working directory
 WORKDIR /app
