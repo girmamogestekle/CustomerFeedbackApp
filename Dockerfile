@@ -1,5 +1,5 @@
 # Use Amazon Corretto as the base image
-FROM amazoncorretto:17-alpine
+FROM public.ecr.aws/lambda/java:17
 
 # Set the working directory
 WORKDIR /app
@@ -8,4 +8,5 @@ WORKDIR /app
 COPY target/*.jar app.jar
 
 # Set the Lambda runtime entry point
-ENTRYPOINT ["java", "-jar", "app.jar"]
+CMD [ "customer.feedback.com.AWSHandler::handleRequest" ]
+#ENTRYPOINT ["java", "-jar", "app.jar"]
