@@ -52,9 +52,9 @@ jobs:
       - name: Push Docker image to Amazon ECR
         run: docker push ${{ secrets.AWS_ECR_REGISTRY }}/customer-feedback-application:latest
 
-#      - name: Deploy to AWS Lambda
-#        run: |
-#          aws lambda update-function-code \
-#          --function-name customer-feedback-application \
-#          --image-uri ${{ secrets.AWS_ECR_REGISTRY }}/customer-feedback-application:latest
+      - name: Deploy to AWS Lambda
+        run: |
+          aws lambda update-function-code \
+          --function-name customer-feedback-application \
+          --image-uri ${{ secrets.AWS_ECR_REGISTRY }}/customer-feedback-application:latest
 
