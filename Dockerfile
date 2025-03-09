@@ -8,5 +8,4 @@ WORKDIR /app
 COPY target/*.jar app.jar
 
 # Set the Lambda runtime entry point
-CMD [ "customer.feedback.com.AWSHandler::handleRequest" ]
-#ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
