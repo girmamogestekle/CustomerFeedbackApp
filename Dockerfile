@@ -1,11 +1,9 @@
 # Use Amazon Corretto as the base image
-FROM public.ecr.aws/lambda/java:17
+FROM public.ecr.aws/lambda/java:21
 
-# Set the working directory
-WORKDIR /app
+# Copy function code and runtime dependencies from Maven layout
+COPY target/classes ${LAMBDA_TASK_ROOT}
+COPY target/dependency/* ${LAMBDA_TASK_ROOT}/lib/
 
-# Copy Jar file
-COPY target/*.jar app.jar
-
-# Set the Lambda runtime entry point
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Set the CMD to your handler (could also be done as a parameter override outside of the Dockerfile)
+CMD [ " customer.feedback.com.AWSHandler::handleRequest" ]
